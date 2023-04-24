@@ -1,5 +1,6 @@
 from vector import Vector3D
 import pytest
+import math
 
 def test_vector_str():
     v = Vector3D(1, 2, 3)
@@ -46,4 +47,5 @@ def test_vector_dot_product():
     u = Vector3D(1, 1, 1)
     w = u.dot(v)
     assert isinstance(w, (int, float))
-    assert abs(w - 6) < 1e-12
+    #assert abs(w - 6) < 1e-12
+    assert math.isclose(w, 6)
