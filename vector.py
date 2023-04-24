@@ -12,6 +12,7 @@ class Vector3D:
         return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
 
     def __add__(self, other):
+        """Add two vectors"""
         print("self = ", self)
         print("other =", other)
         w = Vector3D(self.x + other.x, self.y + other.y, self.z + other.z)
