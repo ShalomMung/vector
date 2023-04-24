@@ -11,6 +11,18 @@ class Vector3D:
     def __repr__(self):
         return f"{self.__class__.__name__}({self.x}, {self.y}, {self.z})"
 
+    def __add__(self, other):
+        print("self = ", self)
+        print("other =", other)
+        w = Vector3D(self.x + other.x, self.y + other.y, self.z + other.z)
+        return w
+
+    def __eq__(self, other):
+        """Return True if self == other"""
+        return self.x == other.x and self.y == other.y and self.z == other.z
+
 if __name__ == "__main__":
     v = Vector3D(1, 2, 3)
-    print([v])
+    u = Vector3D(1, 1, 1)
+    w = v + u
+    w == Vector3D(2, 3, 4)
