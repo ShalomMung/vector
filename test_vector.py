@@ -49,3 +49,23 @@ def test_vector_dot_product():
     assert isinstance(w, (int, float))
     #assert abs(w - 6) < 1e-12
     assert math.isclose(w, 6)
+
+def test_vector_dot_product_mul():
+    v = Vector3D(1, 2, 3)
+    u = Vector3D(1, 1, 1)
+    w = u * v
+    assert isinstance(w, (int, float))
+    #assert abs(w - 6) < 1e-12
+    assert math.isclose(w, 6)
+
+@pytest.mark.parametrize("u, v, expected", [(Vector3D(0, 1, 0), Vector3D(1, 0, 0), Vector3D(0, 0, -1))])
+def test_vector_cross_product(u, v, expected):
+    #v = Vector3D(1, 0, 0)
+    #u = Vector3D(0, 1, 0)
+    w = u.cross(v)
+    assert w == expected #w == Vector3D(0, 0, -1)
+
+@pytest.mark.parametrize("u, v, expected", [(Vector3D(0, 1, 0), Vector3D(1, 0, 0), Vector3D(0, 0, -1))])
+def test_vector_cross_product(u, v, expected):
+    w = u @ v
+    assert w == expected
